@@ -11,7 +11,6 @@ namespace NavKit.ReactiveUI.Sample.ViewModels;
 public class SampleModalViewModel : ViewModelBase, IModalResultSource<string?>
 {
     private readonly ModalNavigationResult<string?> _result = new();
-    private INavigationService? _navigationService;
 
     public void CancelResult()
     {
@@ -27,10 +26,8 @@ public class SampleModalViewModel : ViewModelBase, IModalResultSource<string?>
     public ReactiveCommand<Unit, Unit> ConfirmCommand { get; }
     public ReactiveCommand<Unit, Unit> CancelCommand { get; }
 
-    public SampleModalViewModel(INavigationService? navigationService = null)
+    public SampleModalViewModel()
     {
-        _navigationService = navigationService ?? AppLocator.Current.GetService<INavigationService>()!;
-        Debug.WriteLine($"NavigationService Modal stack on ctor call: {_navigationService?.ModalDepth}");
         ConfirmCommand = ReactiveCommand.Create(() => SetResult(UserName));
         CancelCommand = ReactiveCommand.Create(Cancel);
     }
@@ -38,8 +35,6 @@ public class SampleModalViewModel : ViewModelBase, IModalResultSource<string?>
     private void SetResult(string? result)
     {
         _result.SetResult(result);
-        
-        Debug.WriteLine($"NavigationService Modal stack: {_navigationService?.ModalDepth}");
     }
 
     private void Cancel()

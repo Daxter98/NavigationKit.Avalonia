@@ -21,7 +21,7 @@ public static class SplatNavigationDependencyResolverExtensions
         ArgumentNullException.ThrowIfNull(dependencyResolver);
 
         // Build the registry eagerly so startup does not depend on nested lazy resolution inside Splat.
-        var typeActivator = new SplatNavigationTypeActivator(Locator.Current);
+        var typeActivator = new SplatNavigationTypeActivator(AppLocator.Current);
         var registryActivator = new ReflectionNavigationTypeActivator(type =>
             type == typeof(TNavigationRegistry)
                 ? null

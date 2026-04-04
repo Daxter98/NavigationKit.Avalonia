@@ -29,9 +29,9 @@ public class Page2ViewModel : ViewModelBase, IDisposable
 
     public ReactiveCommand<Unit, string?> GreetCommand { get; }
 
-    public Page2ViewModel(INavigationService? navigation = null)
+    public Page2ViewModel(INavigationService navigation)
     {
-        _navigationService = navigation ?? AppLocator.Current.GetService<INavigationService>()!;
+        _navigationService = navigation;
 
         GreetCommand = ReactiveCommand.CreateFromTask(OpenNameInputModalAsync,
             outputScheduler: RxSchedulers.MainThreadScheduler);
