@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>NavigationKit.Avalonia</AssemblyName>
+    <RootNamespace>NavigationKit.Avalonia</RootNamespace>
+    <Version>0.1.0-rc.1</Version>
+    <PackageId>NavigationKit.Avalonia</PackageId>
+    <Title>NavigationKit.Avalonia</Title>
+    <Description>VM-first navigation library for Avalonia applications with route registration, modal results, and DI integration.</Description>
+    <Authors>Emad Madrigal</Authors>
+    <PackageTags>avalonia;navigation;mvvm;modal;di;splat</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="12.0.0-rc2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="11.0.0-preview.2.26159.112" />
+    <PackageReference Include="Splat" Version="19.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>

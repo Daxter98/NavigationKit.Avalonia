@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="NavigationKit.Avalonia/NavigationKit.Avalonia.csproj" />
+  <Project Path="NavKit.ReactiveUI.Sample/NavKit.ReactiveUI.Sample.csproj" />
+</Solution>

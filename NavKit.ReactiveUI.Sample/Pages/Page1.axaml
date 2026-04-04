@@ -1,0 +1,13 @@
+﻿<ContentPage xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewModels="clr-namespace:NavKit.ReactiveUI.Sample.ViewModels"
+             x:Class="NavKit.ReactiveUI.Sample.Pages.Page1"
+             x:DataType="viewModels:Page1Vm"
+             Header="Page 1">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+        <TextBlock Text="This is Page1." FontSize="24" HorizontalAlignment="Center" />
+        
+        <Button Content="Go to Page2" x:Name="GoToPage2Button" />
+    </StackPanel>
+</ContentPage>
+
