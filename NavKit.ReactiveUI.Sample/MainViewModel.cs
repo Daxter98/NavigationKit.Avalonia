@@ -37,7 +37,7 @@ public class MainViewModel : ReactiveObject
             return Task.CompletedTask;
         }
 
-        return _navigationService.PushAsync<Page1Vm>();
+        return _navigationService.PushAsync<Page1ViewModel>();
     }
     
     private void OnNavigationStateChanged(object? sender, NavigationStateChangedEventArgs args)

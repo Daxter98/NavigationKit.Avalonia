@@ -2,15 +2,18 @@
 using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 using NavigationKit.Avalonia.Abstractions;
 using ReactiveUI;
 using Splat;
 
 namespace NavKit.ReactiveUI.Sample.ViewModels;
 
-public class Page2Vm : ViewModelBase, IDisposable
+public class Page2ViewModel : ViewModelBase, IDisposable
 {
     private readonly CompositeDisposable _subscriptions = new();
+
+    private readonly INavigationService _navigationService;
 
     public string? UserName
     {
@@ -26,12 +29,11 @@ public class Page2Vm : ViewModelBase, IDisposable
 
     public ReactiveCommand<Unit, string?> GreetCommand { get; }
 
-    public Page2Vm(INavigationService? navigation = null)
+    public Page2ViewModel(INavigationService? navigation = null)
     {
-        var navigationService = navigation ?? AppLocator.Current.GetService<INavigationService>()!;
+        _navigationService = navigation ?? AppLocator.Current.GetService<INavigationService>()!;
 
-        GreetCommand = ReactiveCommand.CreateFromTask(
-            async () => await navigationService.PushModalForResultAsync<SampleModalViewModel, string?>(),
+        GreetCommand = ReactiveCommand.CreateFromTask(OpenNameInputModalAsync,
             outputScheduler: RxSchedulers.MainThreadScheduler);
 
         _subscriptions.Add(
@@ -50,5 +52,10 @@ public class Page2Vm : ViewModelBase, IDisposable
     public void Dispose()
     {
         _subscriptions.Dispose();
+    }
+
+    private Task<string?> OpenNameInputModalAsync()
+    {
+        return _navigationService.PushModalForResultAsync<SampleModalViewModel, string?>();
     }
 }

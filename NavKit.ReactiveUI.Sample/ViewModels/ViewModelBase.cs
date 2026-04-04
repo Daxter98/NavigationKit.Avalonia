@@ -2,7 +2,4 @@
 
 namespace NavKit.ReactiveUI.Sample.ViewModels;
 
-public class ViewModelBase : ReactiveObject
-{
-    
-}
+public class ViewModelBase : ReactiveObject;

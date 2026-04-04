@@ -317,7 +317,7 @@ public sealed class NavigationService : INavigationService
     }
 
     /// <summary>
-    /// Pushes a modal that is expected to publish a result.
+    /// Pushes a modal expected to publish a result.
     /// </summary>
     private async Task<Page> PushModalForResultCoreAsync(Type viewModelType, object? parameter)
     {

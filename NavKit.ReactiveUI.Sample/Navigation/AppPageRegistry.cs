@@ -10,12 +10,12 @@ public class AppPageRegistry : NavigationRegistry
     public AppPageRegistry(INavigationTypeActivator? activator = null) : base(activator)
     {
         // Vm-only registration
-        Register<Page1Vm, Page1>();
+        Register<Page1ViewModel, Page1>();
 
         // Route-based registration
-        RegisterRoute<Page2Vm, Page2>("page2");
+        RegisterRoute<Page2ViewModel, Page2>("page2");
 
         // Modal registration
-        Register<SampleModalViewModel, Pages.SampleModal>();
+        Register<SampleModalViewModel, SampleModal>();
     }
 }

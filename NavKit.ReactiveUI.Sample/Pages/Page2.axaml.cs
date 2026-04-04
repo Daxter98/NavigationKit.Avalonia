@@ -5,7 +5,7 @@ using ReactiveUI;
 
 namespace NavKit.ReactiveUI.Sample.Pages;
 
-public partial class Page2 : ContentPage, IViewFor<Page2Vm>
+public partial class Page2 : ContentPage, IViewFor<Page2ViewModel>
 {
     public Page2()
     {
@@ -34,12 +34,12 @@ public partial class Page2 : ContentPage, IViewFor<Page2Vm>
     object? IViewFor.ViewModel
     {
         get => ViewModel;
-        set => ViewModel = (Page2Vm?)value;
+        set => ViewModel = (Page2ViewModel?)value;
     }
 
-    public Page2Vm? ViewModel
+    public Page2ViewModel? ViewModel
     {
-        get => DataContext as Page2Vm;
+        get => DataContext as Page2ViewModel;
         set => DataContext = value;
     }
 }

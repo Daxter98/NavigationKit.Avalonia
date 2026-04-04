@@ -5,11 +5,11 @@ using Splat;
 
 namespace NavKit.ReactiveUI.Sample.ViewModels;
 
-public class Page1Vm : ViewModelBase
+public class Page1ViewModel : ViewModelBase
 {
     public ReactiveCommand<Unit, Unit> NavigateToPage2Command { get; }
 
-    public Page1Vm(INavigationService? navigation = null)
+    public Page1ViewModel(INavigationService? navigation = null)
     {
         var navigationService = navigation ?? AppLocator.Current.GetService<INavigationService>()!;
 
