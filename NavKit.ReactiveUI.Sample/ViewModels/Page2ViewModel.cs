@@ -13,8 +13,6 @@ public class Page2ViewModel : ViewModelBase, IDisposable
 {
     private readonly CompositeDisposable _subscriptions = new();
 
-    private readonly INavigationService _navigationService;
-
     public string? UserName
     {
         get;
@@ -29,10 +27,8 @@ public class Page2ViewModel : ViewModelBase, IDisposable
 
     public ReactiveCommand<Unit, string?> GreetCommand { get; }
 
-    public Page2ViewModel(INavigationService navigation)
+    public Page2ViewModel(INavigationService navigation) : base(navigation)
     {
-        _navigationService = navigation;
-
         GreetCommand = ReactiveCommand.CreateFromTask(OpenNameInputModalAsync,
             outputScheduler: RxSchedulers.MainThreadScheduler);
 
@@ -56,6 +52,6 @@ public class Page2ViewModel : ViewModelBase, IDisposable
 
     private Task<string?> OpenNameInputModalAsync()
     {
-        return _navigationService.PushModalForResultAsync<SampleModalViewModel, string?>();
+        return Navigation.PushModalForResultAsync<SampleModalViewModel, string?>();
     }
 }

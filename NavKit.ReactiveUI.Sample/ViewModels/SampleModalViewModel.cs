@@ -8,7 +8,7 @@ using Splat;
 
 namespace NavKit.ReactiveUI.Sample.ViewModels;
 
-public class SampleModalViewModel : ViewModelBase, IModalResultSource<string?>
+public class SampleModalViewModel : ReactiveObject, IModalResultSource<string?>
 {
     private readonly ModalNavigationResult<string?> _result = new();
 
